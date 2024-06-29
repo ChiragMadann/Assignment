@@ -1,0 +1,163 @@
+/* styles.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    background: #333333;
+    color: white;
+    height: 100vh;
+    /* Allow scrolling */
+    font-family: Myfont;
+    
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensures interactions go through the canvas */
+}
+
+@font-face {
+    font-family: Myfont;
+    src: url(Nobel-ExtraLight.woff);
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text-container {
+    position: fixed;
+    top: 30%;
+    /* Adjusted top margin */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 10;
+    display: flex;
+    gap: 150px;
+    /* Adjusted gap */
+}
+
+.scrolling-text {
+    font-size: 8rem;
+    /* Increased text size */
+    transition: transform 0.1s linear;
+    opacity: 0.8;
+}
+
+.image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* REMOVE POSITION IN CASE OF ERROR */
+    position: fixed;   
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+    padding-top: 85px;
+    /* Add some padding to top of columns for adjustment */
+}
+
+.left-column {
+    margin-top: 100px;
+    /* Adjust left column to be slightly lower */
+}
+
+.left-column img,
+.right-column img {
+    width: 55%;
+    /* Adjusted image size */
+    height: auto;
+    margin: 50px auto;
+    /* Adjusted margin for consistent gaps */
+    transition: transform 0.1s linear;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('water-effect.png') repeat;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.cursor {
+    width: 90px;
+    height: 90px;
+    border: 2px solid rgba(87, 18, 236, 0.673);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.1s ease;
+    z-index: 1000;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Logo and navigation styling */
+header {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.logo {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.nav-line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    border-radius: 1.5px; /* Rounded edges */
+}
+
+/* Scroll and select text styling */
+.scroll-text {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    z-index: 2;
+    opacity: 0.8;
+}
